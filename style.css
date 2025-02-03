@@ -1,40 +1,65 @@
+/* Dark Theme */
 body {
     background-color: black;
     color: white;
-    font-family: Arial, sans-serif;
     text-align: center;
+    font-family: Arial, sans-serif;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    font-size: 20px;
-}
-
-.balance img {
+/* Virus Icon */
+.virus-icon {
     width: 100px;
-    animation: rotate 5s infinite linear;
+    height: 100px;
+    margin: 20px auto;
+    display: block;
 }
 
+/* Buttons */
 button {
     background-color: white;
     color: black;
-    padding: 10px;
     border-radius: 10px;
-    margin: 10px;
+    padding: 10px 20px;
     font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 10px;
+}
+button:hover {
+    background-color: gray;
 }
 
+/* Wallet Button */
+.wallet-btn {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Community Section */
+.community {
+    margin-top: 30px;
+}
+
+/* Tasks */
 .tasks {
-    background-color: #222;
-    padding: 20px;
-    border-radius: 10px;
+    margin-top: 30px;
 }
 
+/* Navigation Bar */
 nav {
     display: flex;
     justify-content: space-around;
-    background: #111;
+    background-color: #111;
     padding: 10px;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+nav button {
+    background: none;
+    color: white;
+    font-size: 18px;
+    border: none;
 }
