@@ -1,0 +1,40 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.balance img {
+    width: 100px;
+    animation: rotate 5s infinite linear;
+}
+
+button {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    font-size: 16px;
+}
+
+.tasks {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background: #111;
+    padding: 10px;
+}
