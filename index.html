@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Mini App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        button { padding: 10px; margin: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🚀 Welcome to Mini App</h1>
+    <p id="user"></p>
+    <button onclick="getUser()">Get User Info</button>
+
+    <script>
+        function getUser() {
+            let tg = window.Telegram.WebApp;
+            document.getElementById("user").innerText = `Hello, ${tg.initDataUnsafe.user.first_name}!`;
+        }
+        Telegram.WebApp.expand(); 
+    </script>
+</body>
+</html>
