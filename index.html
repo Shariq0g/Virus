@@ -3,24 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Mini App</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>Virus Mini App</title>
     <style>
-        body { text-align: center; font-family: Arial, sans-serif; }
-        button { padding: 10px; margin: 20px; }
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            animation: spin-grow 2s ease-in-out forwards;
+        }
+        @keyframes spin-grow {
+            0% {
+                transform: scale(0.5) rotate(0deg);
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(2) rotate(360deg);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>🚀 Welcome to Mini App</h1>
-    <p id="user"></p>
-    <button onclick="getUser()">Get User Info</button>
-
+    <img src="virus.png" class="logo" alt="Virus Logo">
     <script>
-        function getUser() {
-            let tg = window.Telegram.WebApp;
-            document.getElementById("user").innerText = `Hello, ${tg.initDataUnsafe.user.first_name}!`;
-        }
-        Telegram.WebApp.expand(); 
+        setTimeout(() => {
+            window.location.href = "main.html"; // Redirect to the main app
+        }, 2000);
     </script>
 </body>
 </html>
