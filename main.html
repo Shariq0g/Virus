@@ -1,43 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIRUS 🦠</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+import 'package:flutter/material.dart';
 
-    <header>
-        <h1>VIRUS 🦠</h1>
-    </header>
+void main() {
+  runApp(MyApp());
+}
 
-    <main>
-        <img src="Picsart_25-02-03_23-06-43-586.png" alt="Virus Icon" class="virus-icon">
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark(),
+      home: HomeScreen(),
+    );
+  }
+}
 
-        <h2>Your Score</h2>
-        <h1>4,878</h1>
-        <p>VIRUS</p>
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
 
-        <button class="wallet-btn">Connect Wallet</button>
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
 
-        <div class="community">
-            <h2>Virus Community</h2>
-            <p>Join the community for updates and rewards.</p>
-            <button class="join-btn">Join</button>
-        </div>
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
-        <div class="tasks">
-            <h2>Tasks</h2>
-            <p>✔️ Make a TON Transaction +3.000 VIRUS <button class="start-btn">Start</button></p>
-        </div>
-    </main>
+  static const List<Widget> _pages = <Widget>[
+    HomePage(),
+    LeaderboardPage(),
+    FriendsPage(),
+    EarnPage(),
+  ];
 
-    <nav>
-        <button>🏠 Home</button>
-        <button>📊 Leaderboard</button>
-        <button>👥 Friends</button>
-    </nav>
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: _pages.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.black,
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.emoji_events),
+            label: "Leaders",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people),
+            label: "Friends",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.assignment),
+            label: "Earn",
+          ),
+        ],
+      ),
+    );
+  }
+}
 
-</body>
-</html>
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "Hello User",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+          SizedBox(height: 20),
+          Image.asset(
+            "assets/virus_icon.png", // Replace with your virus icon
+            width: 120,
+            height: 120,
+          ),
+          SizedBox(height: 20),
+          Text(
+            "XXXX",
+            style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+          SizedBox(height: 30),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+            ),
+            onPressed: () {},
+            child: Text(
+              "Invite Friend",
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class LeaderboardPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text("Leaderboard Page", style: TextStyle(color: Colors.white)),
+    );
+  }
+}
+
+class FriendsPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text("Friends Page", style: TextStyle(color: Colors.white)),
+    );
+  }
+}
+
+class EarnPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text("Earn Page", style: TextStyle(color: Colors.white)),
+    );
+  }
+}
